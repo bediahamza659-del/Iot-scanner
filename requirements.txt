@@ -1,2 +1,3 @@
-scapy==2.4.5
+flask==2.3.0
 nmap==0.0.1
+scapy==2.4.5
