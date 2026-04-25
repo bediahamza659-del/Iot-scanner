@@ -1,49 +1,43 @@
 # Analyseur de Sécurité IoT
 
-Un scanner de réseau basé sur Python qui identifie les appareils connectés, les ports ouverts et les risques de sécurité sur les réseaux locaux.
+Un programme Python avec interface web qui scanne un réseau et trouve les appareils connectés.
 
-## Fonctionnalités
-- Scan du réseau local
-- Détection des appareils connectés
-- Identification des ports ouverts
-- Analyse des risques de sécurité
+## Ce que ça fait
+- Scanne le réseau local
+- Trouve les appareils connectés
+- Voir les ports ouverts
+- Interface web pour utiliser le programme
 
-## Technologies utilisées
-- Python
-- Nmap
-- Socket
+## Comment installer
 
-## Installation
+### Avant de commencer
+- Avoir Python installé
+- Installer Nmap (https://nmap.org/download.html)
 
-### Prérequis
-- Python 3.7+
-- Nmap installé sur votre système
-
-### Configuration
-1. Clonez le repository:
+### Étapes
+1. Ouvrez le terminal
+2. Allez dans votre dossier du projet:
 ```bash
-git clone https://github.com/bediahamza659-del/Iot-scanner.git
-cd Iot-scanner
+cd votre-dossier
 ```
 
-2. Installez les dépendances:
+3. Installez tout:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Installez Nmap:
-   - **Windows**: Téléchargez depuis https://nmap.org/download.html
-   - **Linux**: `sudo apt-get install nmap`
-   - **Mac**: `brew install nmap`
+## Comment utiliser
 
-## Utilisation
 ```bash
-python main.py
+python app.py
 ```
 
-## Dépendances
-Voir `requirements.txt` pour les dépendances du projet.
+Puis ouvrez votre navigateur et allez à:
+```
+http://localhost:5000
+```
 
-## Remarques
-- Nmap doit être installé sur votre système pour que le projet fonctionne
-- Assurez-vous d'avoir la permission avant de scanner des réseaux
+## Outils utilisés
+- Python
+- Flask
+- Nmap
