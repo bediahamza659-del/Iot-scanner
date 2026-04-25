@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IoT Security Dashboard</title>
+
+    <style>
+        body {
+            background: #0f172a;
+            color: white;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        h1 {
+            color: #38bdf8;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #22c55e;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        table {
+            margin: auto;
+            width: 80%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #334155;
+        }
+
+        th {
+            background: #1e293b;
+        }
+
+        .low { color: #22c55e; }
+        .medium { color: #facc15; }
+        .high { color: #ef4444; }
+    </style>
+</head>
+
+<body>
+
+<h1>🔐 IoT Security Scanner</h1>
+
+<button onclick="scanNetwork()">🔍 Scan</button>
+
+<table id="table">
+    <tr>
+        <th>IP</th>
+        <th>Type</th>
+        <th>Ports</th>
+        <th>Risk</th>
+    </tr>
+</table>
+
+<script>
+function scanNetwork() {
+    fetch("/scan")
+    .then(res => res.json())
+    .then(data => {
+
+        let table = document.getElementById("table");
+
+        table.innerHTML = `
+        <tr>
+            <th>IP</th>
+            <th>Type</th>
+            <th>Ports</th>
+            <th>Risk</th>
+        </tr>`;
+
+        data.forEach(d => {
+
+            let color = "low";
+            if (d.risk.includes("Medium")) color = "medium";
+            if (d.risk.includes("High")) color = "high";
+
+            let row = `
+            <tr>
+                <td>${d.ip}</td>
+                <td>${d.type}</td>
+                <td>${d.ports}</td>
+                <td class="${color}">${d.risk}</td>
+            </tr>`;
+
+            table.innerHTML += row;
+        });
+
+    });
+}
+
+// 🔥 auto refresh 10s
+setInterval(scanNetwork, 10000);
+</script>
+
+</body>
+</html>
