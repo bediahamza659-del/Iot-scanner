@@ -1,22 +1,49 @@
-# Iot-scanner
-# Network Scanner & Risk Analysis
+# Analyseur de Sécurité IoT
 
-## Description
-Ce projet permet d’analyser un réseau local afin d’identifier les appareils connectés, leurs ports ouverts et les risques de sécurité associés.
+Un scanner de réseau basé sur Python qui identifie les appareils connectés, les ports ouverts et les risques de sécurité sur les réseaux locaux.
 
 ## Fonctionnalités
 - Scan du réseau local
 - Détection des appareils connectés
 - Identification des ports ouverts
-- Analyse des risques
+- Analyse des risques de sécurité
 
 ## Technologies utilisées
 - Python
 - Nmap
+- Socket
+
+## Installation
+
+### Prérequis
+- Python 3.7+
+- Nmap installé sur votre système
+
+### Configuration
+1. Clonez le repository:
+```bash
+git clone https://github.com/bediahamza659-del/Iot-scanner.git
+cd Iot-scanner
+```
+
+2. Installez les dépendances:
+```bash
+pip install -r requirements.txt
+```
+
+3. Installez Nmap:
+   - **Windows**: Téléchargez depuis https://nmap.org/download.html
+   - **Linux**: `sudo apt-get install nmap`
+   - **Mac**: `brew install nmap`
 
 ## Utilisation
-1. Installer Nmap
-2. Lancer le script principal
+```bash
+python main.py
+```
 
-## Remarque
-Nmap doit être installé sur le système pour que le projet fonctionne.
+## Dépendances
+Voir `requirements.txt` pour les dépendances du projet.
+
+## Remarques
+- Nmap doit être installé sur votre système pour que le projet fonctionne
+- Assurez-vous d'avoir la permission avant de scanner des réseaux
